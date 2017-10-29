@@ -36,16 +36,12 @@
                         <p ng-show="createProduct.price.$invalid && submitted" class="help-block">Please enter product price</p>
                     </div>
                     <div class="form-group" ng-class="{'has-error' : (createProduct.image.$invalid && submitted)}">
-                        <label>Image url</label>
-
-                        <!--<div ngf-select="" ngf-drop="" ng-model="product.image" ngf-model-invalid="invalidFiles" ngf-model-options="modelOptionsObj" ngf-pattern="pattern" ngf-accept="acceptSelect" ng-disabled="disabled" ngf-capture="capture" ngf-drag-over-class="dragOverClassObj" ngf-validate="validateObj" ngf-resize="resizeObj" ngf-resize-if="resizeIfFn($file, $width, $height)" ngf-dimensions="dimensionsFn($file, $width, $height)" ngf-duration="durationFn($file, $duration)" ngf-keep="keepDistinct ? 'distinct' : keep" ngf-fix-orientation="orientation" ngf-max-files="maxFiles" ngf-ignore-invalid="ignoreInvalid" ngf-run-all-validations="runAllValidations" ngf-allow-dir="allowDir" class="drop-box" ngf-drop-available="dropAvailable">Select File-->
-                            <!--<span ng-show="dropAvailable"> or Drop File</span>-->
-                        <!--</div>-->
-                        <!--<div ngf-drop="uploadFiles($files)" class="drop-box"
-                             ngf-drag-over-class="'dragover'"
-                             ngf-pattern="'image/*'">Drop images here</div>
-                        <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>-->
-                        <input type="file" ngf-select name="image" ng-model="product.image" required/>
+                        <label>Image</label>
+                        <div ngf-drop ngf-select ng-model="product.image" class="drop-box"
+                             ngf-drag-over-class="'dragover'" ngf-multiple="false" ngf-allow-dir="true"
+                             accept="image/*"
+                             ngf-pattern="'image/*'"><span ng-if="!product.image">Drop images here or click to upload</span><span ng-if="product.image">{{product.image.name}}</span></div>
+                        <!--<input type="file" ngf-select name="image" ng-model="product.image" required/>-->
                         <p ng-show="createProduct.image.$invalid && submitted" class="help-block">Please enter product image url</p>
                     </div>
                     <div class="form-group" ng-class="{'has-error' : (createProduct.quantity.$invalid && submitted)}">
@@ -66,3 +62,4 @@
         </div>
     </div>
 </div>
+

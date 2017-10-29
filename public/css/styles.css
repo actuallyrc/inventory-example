@@ -851,6 +851,12 @@ h1.page-header {
 .summaryRight {
     color: green;
 }
-/*.active {
-    background-color: #e9ecf2 !important;
-}*/
+.drop-box {
+    background: #F8F8F8;
+    border: 5px dashed #DDD;
+    width: 420px;
+    height: 65px;
+    text-align: center;
+    padding-top: 20px;
+    margin: 10px;
+}
