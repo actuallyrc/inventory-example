@@ -1,0 +1,68 @@
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 marBtm15 boxSize conentBorder">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                <form name="createProduct" class="addQuizSet" role="form" novalidate>
+                    <div class="dashboard-heading">
+                        <h2>Create product<span class="pull-right"><a type="button " class="btn btn-primary" ui-sref="common.products">Back</a></span></h2>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : (createProduct.productId.$invalid && submitted)}">
+                        <label>Product id</label>
+                        <input name="productId" ng-model="product.productId" type="text" class="custom-textbox signupText form-control" required/>
+                        <p ng-show="createProduct.productId.$invalid && submitted" class="help-block text-danger">Please enter product id</p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : (createProduct.productType.$invalid && submitted)}">
+                        <label>Product type</label>
+                        <div class="customDropdown">
+                            <select name="productType" ng-model="product.productType" class="form-control" required>
+                                <option value="" disabled>Select</option>
+                                <option value="TV">TV</option>
+                                <option value="Refrigerator">Refrigerator</option>
+                                <option value="AC">AC</option>
+                                <option value="Washing Machine">Washing Machine</option>
+                            </select>
+                        </div>
+                        <p ng-show="createProduct.productType.$invalid && submitted" class="help-block text-danger">Please select product type</p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : (createProduct.name.$invalid && submitted)}">
+                        <label>Name</label>
+                        <input name="name" ng-model="product.name" type="text" class="custom-textbox signupText form-control" required/>
+                        <p ng-show="createProduct.name.$error.required && submitted" class="help-block">Please enter product name</p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : (createProduct.price.$invalid && submitted)}">
+                        <label>Price</label>
+                        <input type="number" name="price" ng-model="product.price" class="custom-textbox signupText form-control" required/>
+                        <p ng-show="createProduct.price.$invalid && submitted" class="help-block">Please enter product price</p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : (createProduct.image.$invalid && submitted)}">
+                        <label>Image url</label>
+
+                        <!--<div ngf-select="" ngf-drop="" ng-model="product.image" ngf-model-invalid="invalidFiles" ngf-model-options="modelOptionsObj" ngf-pattern="pattern" ngf-accept="acceptSelect" ng-disabled="disabled" ngf-capture="capture" ngf-drag-over-class="dragOverClassObj" ngf-validate="validateObj" ngf-resize="resizeObj" ngf-resize-if="resizeIfFn($file, $width, $height)" ngf-dimensions="dimensionsFn($file, $width, $height)" ngf-duration="durationFn($file, $duration)" ngf-keep="keepDistinct ? 'distinct' : keep" ngf-fix-orientation="orientation" ngf-max-files="maxFiles" ngf-ignore-invalid="ignoreInvalid" ngf-run-all-validations="runAllValidations" ngf-allow-dir="allowDir" class="drop-box" ngf-drop-available="dropAvailable">Select File-->
+                            <!--<span ng-show="dropAvailable"> or Drop File</span>-->
+                        <!--</div>-->
+                        <!--<div ngf-drop="uploadFiles($files)" class="drop-box"
+                             ngf-drag-over-class="'dragover'"
+                             ngf-pattern="'image/*'">Drop images here</div>
+                        <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>-->
+                        <input type="file" ngf-select name="image" ng-model="product.image" required/>
+                        <p ng-show="createProduct.image.$invalid && submitted" class="help-block">Please enter product image url</p>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : (createProduct.quantity.$invalid && submitted)}">
+                        <label>Quantity</label>
+                        <input type="number" name="quantity" ng-model="product.quantity" class="custom-textbox signupText form-control" required/>
+                        <p ng-show="createProduct.quantity.$invalid && submitted" class="help-block">Please enter product quantity</p>
+                    </div>
+                    <div class="col-md-12 text-right">
+                        <button type="button" ng-click="reset()" class="btn btn-primary marTop20"></i>Reset</button>
+                        <button type="button" ng-click="saveProduct(createProduct.$valid)" class="btn btn-primary marTop20"></i>Submit</button>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <p ng-show="errorMsg" class="help-block">{{errorMsg}}</p>
+                        <p ng-show="successMsg" class="text-success">{{successMsg}}</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

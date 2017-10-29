@@ -1,0 +1,58 @@
+<div class="dashboard-heading">
+    <h2>Products <span class="pull-right"><a type="button " class="btn btn-primary" ui-sref="common.edit-product({productId:'new'})">Create New</a></span></h2>
+    <select ng-model="data.filter">
+        <option value="" selected>Filter</option>
+        <option value="TV">TV</option>
+        <option value="Refrigerator">Refrigerator</option>
+        <option value="AC">AC</option>
+        <option value="Washing Machine">Washing Machine</option>
+
+    </select>
+    <select ng-model="data.sort">
+        <option value="" selected>Sort by price</option>
+        <option value="price" selected>low to high</option>
+        <option value="-price">high to low</option>
+    </select>
+</div>
+<div class="col-md-12 pad26 boxsize">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 resetRow table-responsive">
+        <table class="table table-bordered tableContainer ">
+            <thead>
+            <tr>
+                <th class="text-center">Product id</th>
+                <th class="text-center">Product Type</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Image</th>
+                <th class="text-center">Quantity</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-if="products.length" ng-repeat="product in products | filter: {productType: data.filter} | orderBy: data.sort">
+
+                <td class="text-center">
+                    {{product.productId}}
+                </td>
+                <td class="text-center">
+                    {{product.productType}}
+                </td>
+                <td class="text-center">
+                    {{product.name}}
+                </td>
+                <td class="text-center">
+                    {{product.price}}
+                </td>
+                <td class="text-center">
+                    <img ng-src="images/{{product.image}}" width="100" height="100"/>
+                </td>
+                <td class="text-center">
+                    {{product.quantity}}
+                </td>
+            </tr>
+            <tr ng-if="!products.length ">
+                <td colspan="14" class="text-center">No products found</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

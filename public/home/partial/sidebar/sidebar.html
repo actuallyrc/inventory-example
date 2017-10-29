@@ -1,0 +1,24 @@
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+
+    <!--<form role="search">
+        <div class="form-group">
+        </div>
+    </form>-->
+
+    <ul class="nav menu">
+        <li ng-class="{'active': $state.includes('common.products')}">
+            <a ui-sref="common.products">
+                <svg class="glyph stroked dashboard-dial">
+                    <use xlink:href="#stroked-dashboard-dial"></use>
+                </svg> Products</a>
+        </li>
+        <li ng-class="{'active': $state.includes('common.edit-product')}">
+            <a ui-sref="common.edit-product({productId: 'new'})">
+                <svg class="glyph stroked dashboard-dial">
+                    <use xlink:href="#stroked-dashboard-dial"></use>
+                </svg>Create Product</a>
+        </li>
+        <!--<li role="presentation" class="divider"></li>-->
+    </ul>
+
+</div>
